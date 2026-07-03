@@ -1,0 +1,41 @@
+/* PG Persian RTL Fix v4.0 — ParaGraphic */
+
+/* ── ENABLED: apply RTL ──────────────────────────────────── */
+.pg-rtl {
+  direction: rtl !important;
+  text-align: right !important;
+  unicode-bidi: embed !important;
+}
+.pg-rtl span, .pg-rtl strong, .pg-rtl em,
+.pg-rtl a, .pg-rtl b, .pg-rtl i, .pg-rtl mark {
+  unicode-bidi: embed;
+}
+.pg-rtl code, .pg-rtl pre,
+.pg-rtl [class*="hljs"], .pg-rtl [class*="prism"],
+.pg-rtl .katex, .pg-rtl [class*="katex"], .pg-rtl .math {
+  direction: ltr !important;
+  text-align: left !important;
+  unicode-bidi: isolate !important;
+}
+.pg-rtl ul, .pg-rtl ol { padding-right:1.5em; padding-left:0; }
+.pg-rtl blockquote { border-right:3px solid currentColor; border-left:none; padding-right:1em; padding-left:0; }
+
+/* Inputs */
+textarea[dir="rtl"],
+[contenteditable="true"][dir="rtl"],
+rich-textarea[dir="rtl"] {
+  direction: rtl !important;
+  text-align: right !important;
+}
+
+/* ── DISABLED: instantly neutralise everything ───────────── */
+html.pg-rtl-disabled .pg-rtl {
+  direction: unset !important;
+  text-align: unset !important;
+  unicode-bidi: unset !important;
+}
+html.pg-rtl-disabled textarea[dir="rtl"],
+html.pg-rtl-disabled [contenteditable="true"][dir="rtl"] {
+  direction: unset !important;
+  text-align: unset !important;
+}

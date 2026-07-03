@@ -1,0 +1,65 @@
+{
+  "manifest_version": 3,
+  "name": "PG Persian RTL Fix",
+  "version": "4.8.1",
+  "description": "Fixes RTL alignment for Persian/Arabic text on AI chat sites. By ParaGraphic — para-graphic.ir",
+  "permissions": [
+    "storage",
+    "tabs"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "host_permissions": [
+    "https://claude.ai/*",
+    "https://chatgpt.com/*",
+    "https://chat.openai.com/*",
+    "https://gemini.google.com/*",
+    "https://notebooklm.google.com/*",
+    "https://copilot.microsoft.com/*",
+    "https://www.bing.com/*",
+    "https://you.com/*",
+    "https://poe.com/*",
+    "https://character.ai/*",
+    "https://perplexity.ai/*",
+    "https://higgsfield.ai/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "https://claude.ai/*",
+        "https://chatgpt.com/*",
+        "https://chat.openai.com/*",
+        "https://gemini.google.com/*",
+        "https://notebooklm.google.com/*",
+        "https://copilot.microsoft.com/*",
+        "https://www.bing.com/*",
+        "https://you.com/*",
+        "https://poe.com/*",
+        "https://character.ai/*",
+        "https://perplexity.ai/*",
+        "https://higgsfield.ai/*"
+      ],
+      "js": [
+        "content.js"
+      ],
+      "css": [
+        "rtl-fix.css"
+      ],
+      "run_at": "document_idle"
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  }
+}
